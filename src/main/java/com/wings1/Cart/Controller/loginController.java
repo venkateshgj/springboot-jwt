@@ -35,7 +35,6 @@ public class loginController {
     private ResponseEntity<?> login(@RequestBody AuthRequest authRequest) throws UsernameNotFoundException {
 
         UserDetails user = userInfoDetailService.loadUserByUsername(authRequest.getUsername());
-        System.out.println("user : " + user.getUsername());
         if(user !=null){
             UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken = new UsernamePasswordAuthenticationToken(authRequest.getUsername(),authRequest.getPassword());
             authenticationProvider.authenticate(usernamePasswordAuthenticationToken);
